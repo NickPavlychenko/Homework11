@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -6,7 +8,7 @@ public class Main {
         leapYear(2021);
         System.out.println();
         System.out.println("Задание 2");
-        deviceYear(2015, 1);
+        deviceYear(LocalDate.now().getYear(), 1);
         System.out.println();
         System.out.println("Задание 3");
         calculateDeliveryDays(95);
@@ -21,18 +23,27 @@ public class Main {
     }
 
     public static void deviceYear(int deviceYear, int clientOS) {
-        if (deviceYear < 2015) {
-            if (clientOS == 0) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
-            } else if (clientOS == 1) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке.");
-            }
-        } else {
-            if (clientOS == 0) {
-                System.out.println("Установите приложение для iOS по ссылке.");
-            } else if (clientOS == 1) {
-                System.out.println("Установите приложение для Android по ссылке.");
-            }
+        final int IOS = 0;
+        final int ANDROID = 1;
+
+        if (clientOS != IOS && clientOS != ANDROID) {
+            System.out.println("Неизвестная операционная система.");
+            return;
+        }
+        if (deviceYear < 2015 && clientOS == IOS) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
+            return;
+        }
+        if (deviceYear < 2015 && clientOS == ANDROID) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке.");
+            return;
+        }
+        if (deviceYear >= 2015 && clientOS == IOS) {
+            System.out.println("Установите приложение для iOS по ссылке.");
+            return;
+        }
+        if (deviceYear >= 2015 && clientOS == ANDROID) {
+            System.out.println("Установите приложение для Android по ссылке.");
         }
     }
 
