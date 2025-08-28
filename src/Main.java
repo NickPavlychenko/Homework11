@@ -8,7 +8,8 @@ public class Main {
         leapYear(2021);
         System.out.println();
         System.out.println("Задание 2");
-        deviceYear(LocalDate.now().getYear(), 1);
+        int currentYear = LocalDate.now().getYear();
+        deviceYear(currentYear,1);
         System.out.println();
         System.out.println("Задание 3");
         calculateDeliveryDays(95);
@@ -23,6 +24,7 @@ public class Main {
     }
 
     public static void deviceYear(int deviceYear, int clientOS) {
+
         final int IOS = 0;
         final int ANDROID = 1;
 
