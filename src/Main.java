@@ -8,8 +8,7 @@ public class Main {
         leapYear(2021);
         System.out.println();
         System.out.println("Задание 2");
-        int currentYear = LocalDate.now().getYear();
-        deviceYear(currentYear,1);
+        deviceYear(2015,1);
         System.out.println();
         System.out.println("Задание 3");
         calculateDeliveryDays(95);
@@ -25,6 +24,9 @@ public class Main {
 
     public static void deviceYear(int deviceYear, int clientOS) {
 
+        int currentYear = LocalDate.now().getYear();
+
+
         final int IOS = 0;
         final int ANDROID = 1;
 
@@ -32,19 +34,19 @@ public class Main {
             System.out.println("Неизвестная операционная система.");
             return;
         }
-        if (deviceYear < 2015 && clientOS == IOS) {
+        if (deviceYear < currentYear && clientOS == IOS) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
             return;
         }
-        if (deviceYear < 2015 && clientOS == ANDROID) {
+        if (deviceYear < currentYear && clientOS == ANDROID) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке.");
             return;
         }
-        if (deviceYear >= 2015 && clientOS == IOS) {
+        if (deviceYear >= currentYear && clientOS == IOS) {
             System.out.println("Установите приложение для iOS по ссылке.");
             return;
         }
-        if (deviceYear >= 2015 && clientOS == ANDROID) {
+        if (deviceYear >= currentYear && clientOS == ANDROID) {
             System.out.println("Установите приложение для Android по ссылке.");
         }
     }
